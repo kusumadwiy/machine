@@ -18,6 +18,8 @@ product_category = st.sidebar.selectbox('Kategori Produk', ['Beauty', 'Clothing'
 month = st.sidebar.slider('Bulan', 1, 12, 1)
 year = st.sidebar.slider('Tahun', 2000, 2030, 2023)
 
+st.write(f'Inputs: Gender={gender}, Age={age}, Product Category={product_category}, Month={month}, Year={year}')
+
 # Fungsi untuk melakukan prediksi total penjualan
 def predict_sales(gender, age, product_category, month, year):
     gender_num = 2 if gender.lower() == 'female' else 1
