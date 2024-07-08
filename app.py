@@ -4,7 +4,7 @@ import pickle
 
 # Memuat model dari file model.pkl
 with open('model.pkl', 'rb') as file:
-    model.pkl = pickle.load(file)
+    model = pickle.load(file)
 
 # Judul dan deskripsi aplikasi
 st.title('Sales Prediction App')
@@ -33,7 +33,7 @@ def predict_sales(gender, age, product_category, month, year):
     
     input_df = pd.DataFrame(input_data)
     
-    predicted_sales = model_regresi.predict(input_df)
+    predicted_sales = model.predict(input_df)
     
     return predicted_sales[0]
 
