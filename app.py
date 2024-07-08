@@ -43,6 +43,7 @@ def predict_sales(gender, age, product_category, month, year):
     st.write(input_df)
     
     # Lakukan prediksi menggunakan model
-    predicted_sales = model_regresi.predict(input_df)
+    predicted_sales = model.predict(input_df)
     
     return predicted_sales[0]
+
