@@ -22,9 +22,11 @@ st.write(f'Inputs: Gender={gender}, Age={age}, Product Category={product_categor
 
 # Fungsi untuk melakukan prediksi total penjualan
 def predict_sales(gender, age, product_category, month, year):
+    # Transformasi input menjadi nilai numerik yang sesuai
     gender_num = 2 if gender.lower() == 'female' else 1
     product_category_num = 1 if product_category.lower() == 'beauty' else 2 if product_category.lower() == 'clothing' else 3
     
+    # Buat data input untuk prediksi
     input_data = {
         'Gender': [gender_num],
         'Age': [age],
@@ -33,13 +35,14 @@ def predict_sales(gender, age, product_category, month, year):
         'Year': [year]
     }
     
+    # Buat DataFrame dari data input
     input_df = pd.DataFrame(input_data)
     
-    predicted_sales = model.predict(input_df)
+    # Debugging: cetak DataFrame input
+    st.write('DataFrame Input untuk Prediksi:')
+    st.write(input_df)
+    
+    # Lakukan prediksi menggunakan model
+    predicted_sales = model_regresi.predict(input_df)
     
     return predicted_sales[0]
-
-# Tombol untuk melakukan prediksi
-if st.sidebar.button('Prediksi'):
-    predicted_sales = predict_sales(gender, age, product_category, month, year)
-    st.write(f'Prediksi Total Penjualan: {predicted_sales}')
