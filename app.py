@@ -45,8 +45,3 @@ def predict_sales(gender, age, product_category, month, year):
     predicted_sales = model.predict(input_df)
     
     return predicted_sales[0]
-
-# Tombol untuk melakukan prediksi
-if st.sidebar.button('Prediksi'):
-    predicted_sales = predict_sales(gender, age, product_category, month, year)
-    st.write(f'Prediksi Total Penjualan: {predicted_sales}')
