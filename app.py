@@ -10,15 +10,6 @@ with open('model7.pkl', 'rb') as file:
 st.title('Sales Prediction App')
 st.write('Prediksi total penjualan berdasarkan gender, usia, kategori produk, bulan, dan tahun.')
 
-
-with st.form(key='prediction_form'):
-    gender = st.selectbox('Gender', options=['Male', 'Female'])
-    age = st.number_input('Usia', min_value=0, max_value=100, step=5)
-    product_category = st.selectbox('Kategori Produk', options=['Beauty', 'Clothing', 'Electronics'])
-    month = st.number_input('Bulan', min_value=1, max_value=12, step=1)
-    year = st.number_input('Tahun', min_value=2000, max_value=2100, step=1)
-    submit_button = st.form_submit_button(label='Predict')
-
 # Fungsi untuk melakukan prediksi total penjualan
 def predict_sales(gender, age, product_category, month, year):
     # Transformasi input menjadi nilai numerik yang sesuai
@@ -45,3 +36,17 @@ def predict_sales(gender, age, product_category, month, year):
     predicted_sales = model.predict(input_df)
     
     return predicted_sales[0]
+
+# Form input untuk prediksi
+with st.form(key='prediction_form'):
+    gender = st.selectbox('Gender', options=['Male', 'Female'])
+    age = st.number_input('Usia', min_value=0, max_value=100, step=5)
+    product_category = st.selectbox('Kategori Produk', options=['Beauty', 'Clothing', 'Electronics'])
+    month = st.number_input('Bulan', min_value=1, max_value=12, step=1)
+    year = st.number_input('Tahun', min_value=2000, max_value=2100, step=1)
+    submit_button = st.form_submit_button(label='Predict')
+
+# Memproses prediksi ketika tombol submit ditekan
+if submit_button:
+    predicted_sales = predict_sales(gender, age, product_category, month, year)
+    st.write(f'Prediksi Total Penjualan: {predicted_sales}')
