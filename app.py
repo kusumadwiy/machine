@@ -29,7 +29,7 @@ def predict_sales(gender, age, product_category, month, year):
     input_df = pd.DataFrame(input_data)
     
     # Debugging: cetak DataFrame input
-    st.write('DataFrame Input untuk Prediksi:')
+    st.write('Data yang di inputkan:')
     st.write(input_df)
     
     # Lakukan prediksi menggunakan model
