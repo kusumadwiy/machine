@@ -18,8 +18,6 @@ product_category = st.sidebar.selectbox('Kategori Produk', ['Beauty', 'Clothing'
 month = st.sidebar.slider('Bulan', 1, 12, 1)
 year = st.sidebar.slider('Tahun', 2000, 2030, 2023)
 
-st.write(f'Inputs: Gender={gender}, Age={age}, Product Category={product_category}, Month={month}, Year={year}')
-
 # Fungsi untuk melakukan prediksi total penjualan
 def predict_sales(gender, age, product_category, month, year):
     # Transformasi input menjadi nilai numerik yang sesuai
@@ -47,3 +45,7 @@ def predict_sales(gender, age, product_category, month, year):
     
     return predicted_sales[0]
 
+# Tombol untuk melakukan prediksi
+if st.sidebar.button('Prediksi'):
+    predicted_sales = predict_sales(gender, age, product_category, month, year)
+    st.write(f'Prediksi Total Penjualan: {predicted_sales}')
