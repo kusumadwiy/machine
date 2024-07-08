@@ -10,13 +10,14 @@ with open('model7.pkl', 'rb') as file:
 st.title('Sales Prediction App')
 st.write('Prediksi total penjualan berdasarkan gender, usia, kategori produk, bulan, dan tahun.')
 
-# Input form untuk prediksi
-st.sidebar.header('Masukkan Data untuk Prediksi')
-gender = st.sidebar.selectbox('Gender', ['Male', 'Female'])
-age = st.sidebar.slider('Usia', 18, 100, 30)
-product_category = st.sidebar.selectbox('Kategori Produk', ['Beauty', 'Clothing', 'Electronics'])
-month = st.sidebar.slider('Bulan', 1, 12, 1)
-year = st.sidebar.slider('Tahun', 2000, 2030, 2023)
+
+with st.form(key='prediction_form'):
+    gender = st.selectbox('Gender', options=['Male', 'Female'])
+    age = st.number_input('Usia', min_value=0, max_value=100, step=5)
+    product_category = st.selectbox('Kategori Produk', options=['Beauty', 'Clothing', 'Electronics'])
+    month = st.number_input('Bulan', min_value=1, max_value=12, step=1)
+    year = st.number_input('Tahun', min_value=2000, max_value=2100, step=1)
+    submit_button = st.form_submit_button(label='Predict')
 
 # Fungsi untuk melakukan prediksi total penjualan
 def predict_sales(gender, age, product_category, month, year):
