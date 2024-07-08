@@ -4,7 +4,7 @@ import pickle
 
 # Memuat model dari file model.pkl
 with open('model.pkl', 'rb') as file:
-    model = pickle.load(file)
+    model.pkl = pickle.load(file)
 
 # Judul dan deskripsi aplikasi
 st.title('Sales Prediction App')
