@@ -49,4 +49,4 @@ with st.form(key='prediction_form'):
 # Memproses prediksi ketika tombol submit ditekan
 if submit_button:
     predicted_sales = predict_sales(gender, age, product_category, month, year)
-    st.write(f'Prediksi Total Penjualan: {predicted_sales}')
+    st.write(f'Prediksi Penjualan: {predicted_sales}')
