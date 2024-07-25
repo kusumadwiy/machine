@@ -7,8 +7,8 @@ with open('model7.pkl', 'rb') as file:
     model = pickle.load(file)
 
 # Judul dan deskripsi aplikasi
-st.title('Sales Prediction App')
-st.write('Prediksi total penjualan berdasarkan gender, usia, kategori produk, bulan, dan tahun.')
+st.title('Prediksi Penjualan Produk')
+st.write('PBerdasarkan Data Penjualan Historis')
 
 # Fungsi untuk melakukan prediksi total penjualan
 def predict_sales(gender, age, product_category, month, year):
