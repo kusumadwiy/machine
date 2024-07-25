@@ -8,7 +8,7 @@ with open('model7.pkl', 'rb') as file:
 
 # Judul dan deskripsi aplikasi
 st.title('Prediksi Penjualan Produk')
-st.write('PBerdasarkan Data Penjualan Historis')
+st.write('Berdasarkan Data Penjualan Historis')
 
 # Fungsi untuk melakukan prediksi total penjualan
 def predict_sales(gender, age, product_category, month, year):
